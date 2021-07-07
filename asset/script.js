@@ -1,39 +1,25 @@
-// task 1: menampilkan user ke DOM HTML
-const users = [
-	{
-		name: "josh",
-		age: 22,
-	},
-	{
-		name: "rush",
-		age: 20,
-	},
+// task 1: menampilkan user ke DOM HTML , dan menghitung rata-rata umur
+const students = [
+	{ name: "Alice", age: 20 },
+	{ name: "Bob", age: 21 },
+	{ name: "Jane", age: 20 },
 ];
 
-const usersContainer = document.querySelector(".users");
-
-users.forEach((user) => {
-	usersContainer.innerHTML += `
-		<tr>
-			<td>${user.name}</td>
-			<td>${user.age}</td>
-		</tr>
-	`;
+const tableDom = document.getElementById("student-table");
+students.forEach((student, idx) => {
+	let row = tableDom.insertRow(idx + 1);
+	let studentCell = row.insertCell(0);
+	studentCell.innerHTML = student.name;
+	let ageCell = row.insertCell(1);
+	ageCell.innerHTML = student.age;
 });
 
-// task 2: menghitung rata-rata
+const averageAge = (students) => {
+	const totalAge = students.reduce((acc, { age }) => acc + age, 0);
+	return totalAge / students.length;
+};
 
-const buttonContainer = document.querySelector(".hitung");
-
-buttonContainer.addEventListener("click", () => {
-	let jumlahUmur = 0;
-	let rataRata = 0;
-
-	users.forEach((user) => {
-		jumlahUmur += user.age;
-	});
-
-	rataRata = jumlahUmur / users.length;
-
-	alert(`Rata rata umur: ${rataRata}`);
-});
+function calculateStudents() {
+	age = averageAge(students);
+	console.log(age);
+}
