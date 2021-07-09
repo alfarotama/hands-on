@@ -14,14 +14,27 @@ students.forEach((student, idx) => {
 	ageCell.innerHTML = student.age;
 });
 
+// next step : memasukan beberapa fungsi wait
+
+const wait = (time) => new Promise((resolve) => setTimeout(resolve, time));
+
+function calculateStudents() {
+	console.log("calculation start");
+	averageAge(students)
+		.then((res) => console.log("age is ", res))
+		.catch(console.log);
+	console.log("second call started");
+	wait(2000)
+		.then(() => {
+			console.log("second call finished");
+			console.log("third call started");
+			return wait(5000);
+		})
+		.then(() => console.log("third call finished"));
+}
+
 const averageAge = (students) => {
+	await wait(5000);
 	const totalAge = students.reduce((acc, { age }) => acc + age, 0);
 	return totalAge / students.length;
 };
-
-function calculateStudents() {
-	age = averageAge(students);
-	console.log(age);
-}
-
-// next step : memasukan beberapa fungsi wait
