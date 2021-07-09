@@ -5,7 +5,7 @@ const students = [
 	{ name: "Jane", age: 20 },
 ];
 
-const tableDom = document.getElementById("student-table");
+tableDom = document.getElementById("student-table");
 students.forEach((student, idx) => {
 	let row = tableDom.insertRow(idx + 1);
 	let studentCell = row.insertCell(0);
@@ -33,7 +33,7 @@ function calculateStudents() {
 		.then(() => console.log("third call finished"));
 }
 
-const averageAge = (students) => {
+const averageAge = async (students) => {
 	await wait(5000);
 	const totalAge = students.reduce((acc, { age }) => acc + age, 0);
 	return totalAge / students.length;
