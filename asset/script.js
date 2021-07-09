@@ -1,4 +1,4 @@
-// task 1: menampilkan user ke DOM HTML , dan menghitung rata-rata umur
+// menampilkan user ke DOM HTML , dan menghitung rata-rata umur
 const students = [
 	{ name: "Alice", age: 20 },
 	{ name: "Bob", age: 21 },
@@ -23,3 +23,5 @@ function calculateStudents() {
 	age = averageAge(students);
 	console.log(age);
 }
+
+// next step : memasukan beberapa fungsi wait
